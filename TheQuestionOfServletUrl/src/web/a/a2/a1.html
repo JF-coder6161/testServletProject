@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+This is page a1
+<br/>
+
+<!--
+相对(基准)路径：以当前文件本身的位置去定位其他文件，相对自己的路径，以当前文件所在的位置为基准位置
+绝对(基准)路径：以一个固定的位置去定位其他文件，以一个固定的路径作为定位文件的基准位置，和文件本身位置无关
+
+相对路径,不以 / 开头
+绝对路径, 以 / 开头  ps: 在页面上 / 代表从项目的部署目录开始找，
+-->
+<a href="a2.html" target="_self"> 相对路径  --> 跳转至a2</a><br/>
+<a href="../../b/b2/b1.html" target="_self">相对路径 --> 跳转b1</a><br/>
+
+<a href="/TheQuestionOfServletUrl_war/a/a2/a2.html" target="_self"> 绝对路径  --> 跳转至a2</a><br/>
+<a href="/TheQuestionOfServletUrl_war/b/b2/b1.html" target="_self">绝对路径 --> 跳转b1</a><br/>
+
+
+</body>
+</html>
