@@ -1,0 +1,41 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <context-param>
+    <param-name>username</param-name>
+    <param-value>JackLee</param-value>
+  </context-param>
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>123456</param-value>
+  </context-param>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>myServlet41</servlet-name>
+    <servlet-class>com.jf.servlet.MyServlet41</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>myServlet41</servlet-name>
+    <url-pattern>/myServlet41.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>myServlet42</servlet-name>
+    <servlet-class>com.jf.servlet.MyServlet42</servlet-class>
+    <init-param>
+      <param-name>servlet42</param-name>
+      <param-value>11</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>myServlet42</servlet-name>
+    <url-pattern>/myServlet42.do</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
