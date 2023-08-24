@@ -17,6 +17,8 @@
     <module>servletRequestRetransmission</module>
     <module>servletRequestRedirection</module>
     <module>servletUrlPattern</module>
+    <module>TheQuestionOfServletUrl</module>
+      <module>testCookie</module>
   </modules>
 
   <name>testServletProject</name>
