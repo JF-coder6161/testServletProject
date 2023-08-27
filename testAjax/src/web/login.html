@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var xhr;
+
+        function checkUname(){
+            var unameDOM = document.getElementById("unameI");
+            var unameText = unameDOM.value;
+            var unameInfoDom = document.getElementById("unameInfo");
+            if(null == unameText || unameText == ''){
+                unameInfoDom.innerText = "please enter right username"
+                return ;
+            }
+            unameInfoDom.innerText = '';
+            // 发送异步请求
+            xhr = new XMLHttpRequest();
+            xhr.open("GET","unameCheckServlet.do?uname=" + unameText,true)
+            // 设置回调函数
+            xhr.onreadystatechange = showReturnInfo;
+            // 正式发送请求
+            xhr.send(null)
+
+        }
+
+        function showReturnInfo(){
+            if (xhr.readyState == 4 && xhr.status == 200){
+                var returnInfo = xhr.responseText;
+                var unameInfoDom = document.getElementById("unameInfo");
+                unameInfoDom.innerText = returnInfo;
+            }
+        }
+    </script>
+</head>
+<body>
+<form action="servlet02.do" method="get">
+    username:<input id="unameI" type="text" name="uname" onmouseleave="checkUname()"><span id="unameInfo" style="color: red"></span><br/>
+    password:<input type="password" name="pwd"><br/>
+    <input type="submit"><br/>
+</form>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Project exclude paths
+/servletDemo1/target/
+/servletDemo2/target/
+/servletDemo3/target/
+/servletDemo4/target/
+/servletRequestRetransmission/target/
+/servletUrlPattern/target/

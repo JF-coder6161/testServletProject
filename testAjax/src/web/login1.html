@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var xhr;
+        function testData(){
+            xhr = new XMLHttpRequest();
+            xhr.open("GET","testServlet3.do",true);
+            xhr.onreadystatechange = showReturnInfo1;
+            xhr.send(null);
+        }
+
+        function showReturnInfo1(){
+            if (xhr.readyState ==4 && xhr.status == 200){
+                var info = xhr.responseText;
+                var user =  JSON.parse(info);
+                alert(user.uname);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="测试" onclick="testData()"/>
+</body>
+</html>
