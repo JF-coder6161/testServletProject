@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+
+        function checkUserName() {
+            // alert("move")
+            //console.log($("#uname").val())
+
+            // 获取输入框中的内容
+            if (null == $("#uname").val() || '' == $("#uname").val()) {
+                $("#unameInfo").text("用户名不能为空");
+                return;
+            }
+            $("#sp1").text("");
+
+            // $.ajax({
+            //     url: "testServlet6.do",
+            //     type: "GET",
+            //     data: "username=" + $("#uname").val() + "&password=" + $("#pwd").val(),
+            //     dataType: "text",
+            //     success: function (info) {
+            //         //console.log($("#sp1"))
+            //         console.log(info)
+            //         $("#sp1").text(info)
+            //     },
+            //     error: function () {
+            //         alert("response fail ")
+            //     }
+            // })
+
+            $.get(
+                "testServlet6.do",
+                "username=" + $("#uname").val() + "&password=" + $("#pwd").val(),
+                function (info){
+                    $("#sp1").text(info)
+                },
+                "text"
+            )
+        }
+    </script>
+</head>
+<body>
+<form method="get" action="#">
+    <input type="text" id="uname" onmouseleave="checkUserName()"><br/>
+    <span id="sp1" style="color: red"></span><br/>
+    <input type="password" id="pwd"></br>
+    <input type="submit">
+</form>
+</body>
+</html>

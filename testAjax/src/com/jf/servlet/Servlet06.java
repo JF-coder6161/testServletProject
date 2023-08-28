@@ -7,14 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/unameCheckServlet.do"})
-public class Servlet02 extends HttpServlet {
+@WebServlet(urlPatterns = {"/testServlet6.do"})
+public class Servlet06 extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        String uname = req.getParameter("uname");
-        System.out.println("接收到" + uname);
+        System.out.println("接收到");
+        String uname = req.getParameter("username");
         String info = "";
         if (null != uname && "msb".equals(uname)){
             info = "用户名已占用";
@@ -23,6 +22,6 @@ public class Servlet02 extends HttpServlet {
         }
         resp.setContentType("text/html;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().print("alert('hello')");
+        resp.getWriter().print(info);
     }
 }

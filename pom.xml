@@ -21,6 +21,7 @@
     <module>testCookie</module>
     <module>testHttpSession</module>
     <module>testAjax</module>
+      <module>testAjaxThreeArea</module>
   </modules>
 
   <name>testServletProject</name>

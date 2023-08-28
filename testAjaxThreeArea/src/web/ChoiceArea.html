@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function (){
+            // get all province data
+            // $.ajax({
+            //     type:"GET",
+            //     url:"areaController.do",
+            //     data:{parentID:0},
+            //     dataType:"json",
+            //     success:function (info){
+            //         $.each(info,function (i,e){
+            //             $("#province").append('<option value="'+e.areaid+'">'+e.areaname+'</option>>')
+            //         })
+            //     }
+            // })
+            CommonShow(0,"#province")
+        })
+
+        function showCity(val){
+            // console.log("city value"+val)
+            // $.ajax({
+            //     type:"GET",
+            //     url:"areaController.do",
+            //     data:{parentID:val},
+            //     dataType:"json",
+            //     success:function (info){
+            //         // 清除上次选择省份时添加的信息
+            //         $("#city").html("<option>-请选择-</option>")
+            //         $.each(info,function (i,e){
+            //             $("#city").append('<option value="'+e.areaid+'">'+e.areaname+'</option>>')
+            //         })
+            //     }
+            // })
+        }
+
+        function showArea(val){
+            // console.log("area value"+val)
+            // $.ajax({
+            //     type:"GET",
+            //     url:"areaController.do",
+            //     data:{parentID:val},
+            //     dataType:"json",
+            //     success:function (info){
+            //         // 清除上次选择省份时添加的信息
+            //         $("#area").html("<option>-请选择-</option>")
+            //         $.each(info,function (i,e){
+            //             $("#area").append('<option value="'+e.areaid+'">'+e.areaname+'</option>>')
+            //         })
+            //     }
+            // })
+        }
+
+        function CommonShow(val,selectedId){
+            $.ajax({
+                type:"GET",
+                url:"areaController.do",
+                data:{parentID:val},
+                dataType:"json",
+                success:function (info){
+                    // 清除上次选择省份时添加的信息
+                    $(selectedId).html("<option>-请选择-</option>")
+                    $.each(info,function (i,e){
+                        $(selectedId).append('<option value="'+e.areaid+'">'+e.areaname+'</option>>')
+                    })
+                    if(selectedId === '#city'){
+                        $("#area").html("<option>-请选择-</option>")
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    籍贯:<select id="province" onchange="CommonShow(this.value,'#city')">
+        <option>-请选择-</option>
+    </select>
+    <select id="city" onchange="CommonShow(this.value,'#area')">
+        <option>-请选择-</option>
+    </select>
+    <select id="area" >
+        <option>-请选择-</option>
+    </select>
+</body>
+</html>

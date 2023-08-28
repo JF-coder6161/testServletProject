@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+
+        function checkUname(){
+
+            if(null == $("#unameI").val() || '' == $("#unameI").val()){
+                $("#unameInfo").text("please enter right username");
+                return ;
+            }
+            $("#unameInfo").text("");
+
+            // 通过JQuery.ajax() 发送异步请求
+            //$.ajax({属性名:属性值,属性名:属性值,方法名:方法值})
+            $.ajax({
+                // 请求方式
+                type:"GET",
+                // 请求的路径
+                url:"testServlet4.do",
+                // 提交的参数
+                data:"uname="+$("#unameI").val(),
+                // 响应成功执行的函数
+                success:function (info){
+                    $("#unameInfo").text(info)
+                }
+
+            })
+
+        }
+    </script>
+</head>
+<body>
+<form action="testServlet4.do" method="get">
+    username:<input id="unameI" type="text" name="uname" onmouseleave="checkUname()"><span id="unameInfo" style="color: red"></span><br/>
+    password:<input type="password" name="pwd"><br/>
+    <input type="submit"><br/>
+</form>
+</body>
+</html>

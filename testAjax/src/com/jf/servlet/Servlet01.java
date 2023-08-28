@@ -17,7 +17,7 @@ public class Servlet01 extends HttpServlet {
         String pwd = req.getParameter("pwd");
 
         resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text:html;charset=UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
         resp.getWriter().write("login success");
     }
 }
